@@ -1,0 +1,25 @@
+type Query {
+  listRepositories(developerToken: String!): [Repository!]!
+  repositoryDetails(developerToken: String!, repoName: String!, userName: String!): RepositoryDetails!
+}
+
+type Repository {
+  name: String!
+  size: Int!
+  owner: String!
+}
+
+type RepositoryDetails {
+  name: String!
+  size: Int!
+  owner: String!
+  isPrivate: Boolean!
+  fileCount: Int!
+  ymlFileContent: String
+  activeWebhooks: [Webhook!]!
+}
+
+type Webhook {
+  id: String!
+  url: String!
+}
